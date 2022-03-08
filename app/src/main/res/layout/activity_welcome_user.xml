@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="@drawable/background"
+tools:context=".Controllers.WelcomeUserActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Welcome"
+    android:textSize="100sp"
+    android:textColor="#FFFFFF"
+    android:layout_alignParentTop = "true"
+    android:layout_centerHorizontal = "true"
+    android:layout_marginTop="200dp" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="to Your Private Space, dear User"
+    android:textSize="50sp"
+    android:textColor="#FFFFFF"
+    android:layout_alignParentTop = "true"
+    android:layout_centerHorizontal = "true"
+    android:layout_marginTop="400dp" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"
+        android:src="@drawable/image" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Controllers.DetailsActivity"
+    android:orientation="vertical"
+    android:background="#00B0FF"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:text="@string/enregistrer"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_corner">
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/votre_todolist"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/editTextTitre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/titre"
+            android:background="#3000B0FF"
+            android:padding="10dp"
+            android:layout_margin="10dp"/>
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/description"
+            android:background="#3000B0FF"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:lines="10"
+            android:gravity="top"/>
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3000B0FF"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:calendarTextColor="@color/black"
+            android:hint="@string/date_de_la_tache"
+            android:focusable="false"/>
+        <EditText
+            android:id="@+id/editTextHeure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3000B0FF"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:calendarTextColor="@color/black"
+            android:hint="@string/heure_de_la_tache"
+            android:focusable="false"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bntSupprimerTache"
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/menuMiseajour"
+                android:textColor="#3000B0FF"
+                app:backgroundTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bntModifierTache"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/supprimer"
+                android:textColor="#3000B0FF"
+                app:backgroundTint="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
