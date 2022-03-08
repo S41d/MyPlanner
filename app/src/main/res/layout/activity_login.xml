@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    tools:context=".Controllers.LoginActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="100sp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="40dp"
+        android:drawableStart="@drawable/account"
+        android:drawablePadding="5dp"
+        android:gravity="start"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:textCursorDrawable="@null"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/pass1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginRight="40dp"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="5dp"
+        android:gravity="start"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textCursorDrawable="@null"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/toggle_view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="330dp"
+        android:clickable="true"
+        android:onClick="toggle"
+        android:scaleType="centerCrop"
+        android:src="@drawable/eye_off"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        android:focusable="true" />
+
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginRight="40dp"
+        android:backgroundTint="#910303"
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:gravity="center"
+        android:onClick="login"
+        android:text="LOGIN"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp" />
+
+    <TextView
+        android:id="@+id/register1"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginStart="100dp"
+        android:fontFamily="sans-serif"
+        android:text="Don't have an account yet?"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/register2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="600dp"
+        android:layout_toEndOf="@+id/register1"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="sans-serif"
+        android:onClick="register"
+        android:text="   Register."
+        android:textColor="#00d9d9"
+        android:textSize="12sp" />
+
+</RelativeLayout>

@@ -10,14 +10,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPlanner">
         <activity
-            android:name=".MainActivity"
+            android:name=".Controllers.AccueilActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Controllers.AjouterTaches"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.AlarmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.ListeTaches"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Controllers.WelcomeAppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.WelcomeUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Controllers.RegisterActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
