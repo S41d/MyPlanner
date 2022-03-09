@@ -1,4 +1,4 @@
-package com.myplanner.myplanner.Controllers;
+package com.myplanner.myplanner.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 

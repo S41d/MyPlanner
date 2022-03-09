@@ -4,17 +4,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background"
-    tools:context=".Controllers.LoginActivity">
+    tools:context=".controllers.LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="100dp"
         android:text="Login"
         android:textColor="#FFFFFF"
-        android:textSize="100sp" />
+        android:textSize="50sp" />
 
     <EditText
         android:id="@+id/email"
@@ -71,7 +71,6 @@
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"
         android:gravity="center"
-        android:onClick="login"
         android:text="LOGIN"
         android:textAllCaps="false"
         android:textColor="#FFF"

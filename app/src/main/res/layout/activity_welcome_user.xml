@@ -4,7 +4,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:background="@drawable/background"
-tools:context=".Controllers.WelcomeUserActivity">
+tools:context=".controllers.WelcomeUserActivity">
 
 <TextView
     android:layout_width="wrap_content"
@@ -31,7 +31,7 @@ tools:context=".Controllers.WelcomeUserActivity">
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="500dp"
-        android:src="@drawable/image" />
+        android:src="@drawable/background" />
 
 
 

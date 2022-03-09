@@ -1,4 +1,4 @@
-package com.myplanner.myplanner.Database;
+package com.myplanner.myplanner.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.myplanner.myplanner.Model.User;
+import com.myplanner.myplanner.model.User;
 
 import java.util.ArrayList;
 

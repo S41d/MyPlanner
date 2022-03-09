@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.ListeTaches">
+    tools:context=".controllers.ListeTaches">
 
     <TextView
         android:id="@+id/tache"
@@ -19,9 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="558dp"
         android:layout_above="@+id/ajouterTache"
-        android:layout_below="@id/tache"
-        android:clickable="true"
-        android:focusable="true" />
+        android:layout_below="@id/tache" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ajouterTache"

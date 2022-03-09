@@ -1,4 +1,4 @@
-package com.myplanner.myplanner.Model;
+package com.myplanner.myplanner.model;
 
 
 public class Tache {

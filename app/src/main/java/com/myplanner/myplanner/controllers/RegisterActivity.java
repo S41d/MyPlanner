@@ -1,4 +1,4 @@
-package com.myplanner.myplanner.Controllers;
+package com.myplanner.myplanner.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,6 +1,7 @@
-package com.myplanner.myplanner.Model;
+package com.myplanner.myplanner.model;
 
 public class User {
+    static User userConnecte;
     private int id;
     private String username;
     private String email;
@@ -11,8 +12,14 @@ public class User {
         this.email = email;
     }
 
-    public User() {
+    public User() {}
 
+    public static User getUserConnecte() {
+        return userConnecte;
+    }
+
+    public static void setUserConnecte(User userConnecte) {
+        User.userConnecte = userConnecte;
     }
 
     public int getId() {

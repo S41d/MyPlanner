@@ -47,17 +47,4 @@
         android:textColor="@color/black"
         android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/idTache"
-        android:layout_width="45dp"
-        android:layout_height="10dp"
-        android:layout_above="@+id/descriptionTache"
-        android:layout_alignEnd="@+id/titreTache"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="187dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginBottom="14dp"
-        android:text="TextView" />
-
 </RelativeLayout>

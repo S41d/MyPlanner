@@ -1,4 +1,4 @@
-package com.myplanner.myplanner.Database;
+package com.myplanner.myplanner.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.myplanner.myplanner.Model.Tache;
+import com.myplanner.myplanner.model.Tache;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class TacheDBHelper extends SQLiteOpenHelper {
@@ -31,7 +30,7 @@ public class TacheDBHelper extends SQLiteOpenHelper {
     /* La requête de création de la structure de la base de données. */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE table_tache(" + TACHE_ID + " INTEGER PRIMARY KEY, " +
+        db.execSQL("CREATE TABLE " + TABLE_TACHE + "(" + TACHE_ID + " INTEGER PRIMARY KEY, " +
                 TITRE_TACHE + " TEXT NOT NULL, " +
                 DESCRIPTION_TACHE + " TEXT NOT NULL, " +
                 JOUR_TACHE + " TEXT NOT NULL, " +
@@ -40,7 +39,7 @@ public class TacheDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS table_tache");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TACHE);
         onCreate(db);
     }
 
@@ -75,7 +74,7 @@ public class TacheDBHelper extends SQLiteOpenHelper {
     public ArrayList<Tache> getAllTaches() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<Tache> arrayList = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM table_tache", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_TACHE, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             arrayList.add(new Tache(cursor.getInt(0),
@@ -83,6 +82,7 @@ public class TacheDBHelper extends SQLiteOpenHelper {
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4)));
+            cursor.moveToNext();
         }
         cursor.close();
         return arrayList;
@@ -90,7 +90,7 @@ public class TacheDBHelper extends SQLiteOpenHelper {
 
     public Tache getTache(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.query("table_tache",
+        Cursor c = db.query(TABLE_TACHE,
                 new String[]{TACHE_ID, TITRE_TACHE, DESCRIPTION_TACHE, JOUR_TACHE, HEURE_TACHE},
                 TACHE_ID + " = ? ",
                 new String[]{String.valueOf(id)}, null, null, "heureTache");
