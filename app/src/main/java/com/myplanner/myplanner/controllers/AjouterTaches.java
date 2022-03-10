@@ -88,13 +88,7 @@ public class AjouterTaches extends AppCompatActivity {
             int currentMinute = calendar.get(Calendar.MINUTE);
 
             heureTimePicker = new TimePickerDialog(this, (timePicker, currentHour1, currentMinute1) -> {
-                String amPm;
-                if (currentHour1 >= 12) {
-                    amPm = "PM";
-                } else {
-                    amPm = "AM";
-                }
-                heureTache.setText(String.format("%02d:%02d ", currentHour1, currentMinute1) + amPm);
+                heureTache.setText(String.format("%02d:%02d ", currentHour1, currentMinute1));
                 calendar.set(Calendar.HOUR_OF_DAY, currentHour1);
                 calendar.set(Calendar.MINUTE, currentMinute1);
                 calendar.set(Calendar.SECOND, 0);

@@ -87,7 +87,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSupprimerTache"
+                android:id="@+id/btnModifierTache"
                 android:layout_width="164dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -96,7 +96,7 @@
                 app:backgroundTint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnModifierTache"
+                android:id="@+id/btnSupprimerTache"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
