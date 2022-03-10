@@ -17,6 +17,7 @@ import com.myplanner.myplanner.database.TacheDBHelper;
 import com.myplanner.myplanner.model.Tache;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class AccueilActivity extends AppCompatActivity implements RecyclerViewInterface {
 
@@ -55,8 +56,11 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         ajouterTache = findViewById(R.id.ajouterTache);
         ajouterTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
 
+        Calendar calendar = Calendar.getInstance();
+        changeDate(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         calendarView.setOnDateChangeListener(this::changeDate);
     }
+
 
     private void changeDate(CalendarView calendarView, int year, int month, int day) {
         ArrayList<Tache> filtered = new ArrayList<>();

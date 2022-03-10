@@ -61,7 +61,7 @@ public class AjouterTaches extends AppCompatActivity {
         heureTache = findViewById(R.id.editTextHeure);
         btnAjoutTache = findViewById(R.id.btnAjouterTache);
 
-        TacheDBHelper data = new TacheDBHelper(this);
+        TacheDBHelper dbHelper = new TacheDBHelper(this);
 
         //Affichage du calendrier
         jourTache.setOnClickListener(view -> {
@@ -106,10 +106,9 @@ public class AjouterTaches extends AppCompatActivity {
                         jourTache.getText().toString(),
                         heureTache.getText().toString());
 
-                data.insertTache(tache);
+                dbHelper.insertTache(tache);
                 setAlarm(tache);
-                Intent afficheListe = new Intent(AjouterTaches.this, AccueilActivity.class);
-                startActivity(afficheListe);
+                finish();
             }
         });
     }
