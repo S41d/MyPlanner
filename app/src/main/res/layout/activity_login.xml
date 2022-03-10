@@ -65,18 +65,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="440dp"
         android:layout_marginRight="40dp"
-        android:backgroundTint="#910303"
-        android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"
+        android:background="@drawable/round_button_2"
         android:gravity="center"
         android:text="LOGIN"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp"
-        android:topLeftRadius="10dp"
-        android:topRightRadius="10dp" />
+        />
 
     <TextView
         android:id="@+id/register1"
@@ -99,7 +96,6 @@
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif"
-        android:onClick="register"
         android:text="   Register."
         android:textColor="#00d9d9"
         android:textSize="12sp" />

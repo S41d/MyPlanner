@@ -10,11 +10,11 @@ tools:context=".controllers.RegisterActivity">
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/register"
-    android:textSize="100sp"
+    android:textSize="50sp"
     android:textColor="#FFFFFF"
     android:layout_alignParentTop = "true"
     android:layout_centerHorizontal = "true"
-    android:layout_marginTop="300dp" />
+    android:layout_marginTop="150dp" />
 
 <EditText
     android:id="@+id/email2"
@@ -81,8 +81,32 @@ tools:context=".controllers.RegisterActivity">
     android:layout_marginTop="510dp"
     android:textColor="#FFF"
     android:textSize="20sp"
-    android:onClick="register"
     android:background="@drawable/round_button_2"
     android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/login1"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="600dp"
+        android:focusable="true"
+        android:fontFamily="sans-serif"
+        android:text="Want to connect to your account ?"
+        android:textColor="#FFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/login2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="600dp"
+        android:layout_toEndOf="@+id/login1"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="sans-serif"
+        android:text="  Login."
+        android:textColor="#00d9d9"
+        android:textSize="12sp" />
 
 </RelativeLayout>
