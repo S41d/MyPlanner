@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -26,7 +27,14 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
     RecyclerViewAdapter adapter;
     CalendarView calendarView;
     RecyclerView recyclerView;
-    Button listeTache;
+    Button ajouterTache;
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +52,8 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // appel de la vue de l'ajout d'une nouvelle tâche
-        listeTache = findViewById(R.id.ajouterTache);
-        listeTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
+        ajouterTache = findViewById(R.id.ajouterTache);
+        ajouterTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
 
         calendarView.setOnDateChangeListener(this::changeDate);
     }
