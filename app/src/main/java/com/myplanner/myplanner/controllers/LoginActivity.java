@@ -8,22 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.database.UserDBHelper;
 import com.myplanner.myplanner.model.User;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     // Declaration of global variables.

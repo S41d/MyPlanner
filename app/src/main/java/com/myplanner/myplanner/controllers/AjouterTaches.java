@@ -11,8 +11,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,7 @@ public class AjouterTaches extends AppCompatActivity {
     private DatePickerDialog jourDatePicker;
     private TimePickerDialog heureTimePicker;
 
+    LinearLayout layout;
     EditText titreTache;
     EditText descriptionTache;
     EditText jourTache;
@@ -43,12 +46,20 @@ public class AjouterTaches extends AppCompatActivity {
         setContentView(R.layout.activity_ajouter_taches);
         createNotificationChannel();
 
+        // desapparaitre le clavier quand on clique en dehors de editText
+        layout = findViewById(R.id.layout_ajouter);
+        layout.setOnClickListener(view -> {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        });
+
+
         // recherche du contenu de chaque vue d'une tâche à ajouter
         titreTache = findViewById(R.id.editTextTitre);
         descriptionTache = findViewById(R.id.editTextDescription);
         jourTache = findViewById(R.id.editTextDate);
         heureTache = findViewById(R.id.editTextHeure);
-        btnAjoutTache = findViewById(R.id.bntAjouterTache);
+        btnAjoutTache = findViewById(R.id.btnAjouterTache);
 
         TacheDBHelper data = new TacheDBHelper(this);
 
@@ -94,9 +105,6 @@ public class AjouterTaches extends AppCompatActivity {
         // action du bouton pour ajouter une tâche dans la base de données
         btnAjoutTache.setOnClickListener(view -> {
             if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
-                Log.d("Calendar:time", calendar.getTime().toString());
-                Log.d("System:currentTime", String.valueOf(System.currentTimeMillis()));
-                Log.d("Calendar:currentTime", String.valueOf(calendar.getTimeInMillis()));
                 Toast.makeText(this, "Vous ne pouvez pas créer de tache dans le passé", Toast.LENGTH_SHORT).show();
             } else {
                 Tache tache = new Tache(titreTache.getText().toString(),
@@ -106,7 +114,7 @@ public class AjouterTaches extends AppCompatActivity {
 
                 data.insertTache(tache);
                 setAlarm(tache);
-                Intent afficheListe = new Intent(AjouterTaches.this, ListeTaches.class);
+                Intent afficheListe = new Intent(AjouterTaches.this, AccueilActivity.class);
                 startActivity(afficheListe);
             }
         });

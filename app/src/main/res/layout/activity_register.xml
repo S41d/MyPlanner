@@ -9,7 +9,7 @@ tools:context=".controllers.RegisterActivity">
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/register"
+    android:text="@string/creation_de_compte"
     android:textSize="50sp"
     android:textColor="#FFFFFF"
     android:layout_alignParentTop = "true"

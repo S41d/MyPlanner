@@ -12,7 +12,12 @@
         android:theme="@style/Theme.MyPlanner">
         <activity
             android:name=".controllers.AccueilActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".controllers.AjouterTaches"
             android:exported="false" />
@@ -22,15 +27,6 @@
         <activity
             android:name=".controllers.DetailsActivity"
             android:exported="false" />
-        <activity
-            android:name=".controllers.ListeTaches"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <activity
             android:name=".controllers.LogoActivity"
             android:exported="true" />

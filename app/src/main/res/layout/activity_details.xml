@@ -7,6 +7,7 @@
     tools:context=".controllers.DetailsActivity"
     android:orientation="vertical"
     android:background="#00B0FF"
+    android:id="@+id/layout_details"
     android:padding="20dp">
 
     <TextView
@@ -86,21 +87,21 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/bntSupprimerTache"
+                android:id="@+id/btnSupprimerTache"
                 android:layout_width="164dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/menuMiseajour"
-                android:textColor="#3000B0FF"
+                android:textColor="@color/black"
                 app:backgroundTint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/bntModifierTache"
+                android:id="@+id/btnModifierTache"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/supprimer"
-                android:textColor="#3000B0FF"
+                android:textColor="@color/black"
                 app:backgroundTint="@color/white" />
         </LinearLayout>
 
