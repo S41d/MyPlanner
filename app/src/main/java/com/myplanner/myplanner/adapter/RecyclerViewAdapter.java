@@ -54,6 +54,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         notifyDataSetChanged();
     }
 
+    public ArrayList<Tache> getTaches() {
+        return taches;
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView titre, description, date, heure;

@@ -103,6 +103,7 @@ public class DetailsActivity extends AppCompatActivity {
         tache.setJourTache(this.date.getText().toString());
         tache.setHeureTache(this.heure.getText().toString());
         dbHelper.updateTache(tache);
+        finish();
     }
 
     private void supprimer(View view) {

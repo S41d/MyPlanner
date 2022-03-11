@@ -80,11 +80,12 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(AccueilActivity.this, DetailsActivity.class);
-        intent.putExtra("id", String.valueOf(taches.get(position).getId()));
-        intent.putExtra("titre", taches.get(position).getTitreTache());
-        intent.putExtra("description", taches.get(position).getDescriptionTache());
-        intent.putExtra("date", taches.get(position).getJourTache());
-        intent.putExtra("heure", taches.get(position).getHeureTache());
+        ArrayList<Tache> tachesAdapter = adapter.getTaches();
+        intent.putExtra("id", String.valueOf(tachesAdapter.get(position).getId()));
+        intent.putExtra("titre", tachesAdapter.get(position).getTitreTache());
+        intent.putExtra("description", tachesAdapter.get(position).getDescriptionTache());
+        intent.putExtra("date", tachesAdapter.get(position).getJourTache());
+        intent.putExtra("heure", tachesAdapter.get(position).getHeureTache());
         startActivity(intent);
     }
 }
