@@ -21,7 +21,9 @@
     <string name="menuMiseajour">Mise à jour</string>
     <string name="alertComplete">Voulez vous enregistrer definitivement cette tâche</string>
     <string name="comfirmationDialogue">Confirmation</string>
-    <string name="suppressionDialogue">Voulez vous vraiment supprimer cette tâche</string>
+    <string name="suppression_dialog">Voulez vous vraiment supprimer cette tâche?</string>
+    <string name="ajout_dialog">Voulez vous enregistrer cette tâche?</string>
+    <string name="modification_dialog">Voulez vous vraiment modifier cette tâche?</string>
     <string name="oui">Oui</string>
     <string name="titre">Titre</string>
     <string name="description">Description</string>
@@ -29,5 +31,5 @@
     <string name="montitre">Mon titre</string>
     <string name="reminder">Reminder</string>
     <string name="creation_de_compte">Création de compte</string>
-    <string name="non">NON</string>
+    <string name="non">Non</string>
 </resources>

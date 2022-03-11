@@ -21,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.adapter.AlarmReceiver;
 import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.helper.dialog.Dialog;
+import com.myplanner.myplanner.helper.dialog.DialogType;
 import com.myplanner.myplanner.model.Tache;
 import com.myplanner.myplanner.R;
 
@@ -101,14 +103,16 @@ public class AjouterTaches extends AppCompatActivity {
             if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
                 Toast.makeText(this, "Vous ne pouvez pas créer de tache dans le passé", Toast.LENGTH_SHORT).show();
             } else {
-                Tache tache = new Tache(titreTache.getText().toString(),
-                        descriptionTache.getText().toString(),
-                        jourTache.getText().toString(),
-                        heureTache.getText().toString());
+                Dialog.showDialog(this, DialogType.AJOUT, () -> {
+                    Tache tache = new Tache(titreTache.getText().toString(),
+                            descriptionTache.getText().toString(),
+                            jourTache.getText().toString(),
+                            heureTache.getText().toString());
 
-                dbHelper.insertTache(tache);
-                setAlarm(tache);
-                finish();
+                    dbHelper.insertTache(tache);
+                    setAlarm(tache);
+                    finish();
+                });
             }
         });
     }

@@ -19,6 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.adapter.AlarmReceiver;
 import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.helper.dialog.Dialog;
+import com.myplanner.myplanner.helper.dialog.DialogType;
 import com.myplanner.myplanner.model.Tache;
 
 import java.util.Calendar;
@@ -105,9 +107,11 @@ public class DetailsActivity extends AppCompatActivity {
         tache.setDescriptionTache(this.description.getText().toString());
         tache.setJourTache(this.date.getText().toString());
         tache.setHeureTache(this.heure.getText().toString());
-        dbHelper.updateTache(tache);
-        updateAlarm(tache);
-        finish();
+        Dialog.showDialog(this, DialogType.MODIFICATION, () -> {
+            dbHelper.updateTache(tache);
+            updateAlarm(tache);
+            finish();
+        });
     }
 
     private void updateAlarm(Tache tache) {
@@ -115,9 +119,6 @@ public class DetailsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("titre", tache.getTitreTache());
         intent.putExtra("description", tache.getDescriptionTache());
-        Log.d("alarm:titre", tache.getTitreTache());
-        Log.d("alarm:desc", tache.getDescriptionTache());
-
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
@@ -127,8 +128,6 @@ public class DetailsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("titre", tache.getTitreTache());
         intent.putExtra("description", tache.getDescriptionTache());
-        Log.d("alarm:titre", tache.getTitreTache());
-        Log.d("alarm:desc", tache.getDescriptionTache());
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
         alarmManager.cancel(pendingIntent);
 
@@ -142,8 +141,10 @@ public class DetailsActivity extends AppCompatActivity {
         tache.setJourTache(this.date.getText().toString());
         tache.setHeureTache(this.heure.getText().toString());
         Log.d("tache", "tache supprimé: " + idTache);
-        dbHelper.deleteTache(idTache);
-        supprimerAlarm(tache);
-        finish();
+        Dialog.showDialog(this, DialogType.SUPPRESSION, () -> {
+            dbHelper.deleteTache(idTache);
+            supprimerAlarm(tache);
+            finish();
+        });
     }
 }
