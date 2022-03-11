@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="80dp"
         android:background="@drawable/ic_baseline_notification_important_24"
-        android:contentDescription="@string/todo_icon" />
+        android:contentDescription="@string/todo_icon"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,7 +53,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="50dp"
-
         android:text="@string/fermer"
         android:textAllCaps="false"/>
 
