@@ -1,6 +1,8 @@
 package com.myplanner.myplanner.controllers;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +17,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.R;
+import com.myplanner.myplanner.adapter.AlarmReceiver;
 import com.myplanner.myplanner.database.TacheDBHelper;
 import com.myplanner.myplanner.model.Tache;
 
@@ -103,12 +106,44 @@ public class DetailsActivity extends AppCompatActivity {
         tache.setJourTache(this.date.getText().toString());
         tache.setHeureTache(this.heure.getText().toString());
         dbHelper.updateTache(tache);
+        updateAlarm(tache);
         finish();
     }
 
+    private void updateAlarm(Tache tache) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("titre", tache.getTitreTache());
+        intent.putExtra("description", tache.getDescriptionTache());
+        Log.d("alarm:titre", tache.getTitreTache());
+        Log.d("alarm:desc", tache.getDescriptionTache());
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+    }
+
+    private void supprimerAlarm(Tache tache) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("titre", tache.getTitreTache());
+        intent.putExtra("description", tache.getDescriptionTache());
+        Log.d("alarm:titre", tache.getTitreTache());
+        Log.d("alarm:desc", tache.getDescriptionTache());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
+        alarmManager.cancel(pendingIntent);
+
+    }
+
     private void supprimer(View view) {
+        Tache tache = new Tache();
+        tache.setId(idTache);
+        tache.setTitreTache(this.titre.getText().toString());
+        tache.setDescriptionTache(this.description.getText().toString());
+        tache.setJourTache(this.date.getText().toString());
+        tache.setHeureTache(this.heure.getText().toString());
         Log.d("tache", "tache supprimé: " + idTache);
         dbHelper.deleteTache(idTache);
+        supprimerAlarm(tache);
         finish();
     }
 }

@@ -121,7 +121,7 @@ public class AjouterTaches extends AppCompatActivity {
         Log.d("alarm:titre", tache.getTitreTache());
         Log.d("alarm:desc", tache.getDescriptionTache());
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
