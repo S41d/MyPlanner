@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.adapter.AlarmReceiver;
 import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.helper.Alarm;
 import com.myplanner.myplanner.helper.dialog.Dialog;
 import com.myplanner.myplanner.helper.dialog.DialogType;
 import com.myplanner.myplanner.model.Tache;
@@ -110,23 +111,12 @@ public class AjouterTaches extends AppCompatActivity {
                             heureTache.getText().toString());
 
                     dbHelper.insertTache(tache);
-                    setAlarm(tache);
+                    Alarm alarm = new Alarm(this, tache);
+                    alarm.setAlarm(calendar.getTimeInMillis());
                     finish();
                 });
             }
         });
-    }
-
-    public void setAlarm(Tache tache) {
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        intent.putExtra("titre", tache.getTitreTache());
-        intent.putExtra("description", tache.getDescriptionTache());
-        Log.d("alarm:titre", tache.getTitreTache());
-        Log.d("alarm:desc", tache.getDescriptionTache());
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
     public void createNotificationChannel() {

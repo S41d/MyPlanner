@@ -13,12 +13,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.adapter.AlarmReceiver;
 import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.helper.Alarm;
 import com.myplanner.myplanner.helper.dialog.Dialog;
 import com.myplanner.myplanner.helper.dialog.DialogType;
 import com.myplanner.myplanner.model.Tache;
@@ -101,37 +103,24 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void modifier(View view) {
-        Tache tache = new Tache();
-        tache.setId(idTache);
-        tache.setTitreTache(this.titre.getText().toString());
-        tache.setDescriptionTache(this.description.getText().toString());
-        tache.setJourTache(this.date.getText().toString());
-        tache.setHeureTache(this.heure.getText().toString());
-        Dialog.showDialog(this, DialogType.MODIFICATION, () -> {
-            dbHelper.updateTache(tache);
-            updateAlarm(tache);
-            finish();
-        });
+        if (calendar.getTimeInMillis() < System.currentTimeMillis()) {
+            Toast.makeText(this, R.string.toast_erreur_temps, Toast.LENGTH_SHORT).show();
+        } else {
+            Tache tache = new Tache();
+            tache.setId(idTache);
+            tache.setTitreTache(this.titre.getText().toString());
+            tache.setDescriptionTache(this.description.getText().toString());
+            tache.setJourTache(this.date.getText().toString());
+            tache.setHeureTache(this.heure.getText().toString());
+            Dialog.showDialog(this, DialogType.MODIFICATION, () -> {
+                dbHelper.updateTache(tache);
+                Alarm alarm = new Alarm(this, tache);
+                alarm.setAlarm(calendar.getTimeInMillis());
+                finish();
+            });
+        }
     }
 
-    private void updateAlarm(Tache tache) {
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        intent.putExtra("titre", tache.getTitreTache());
-        intent.putExtra("description", tache.getDescriptionTache());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-    }
-
-    private void supprimerAlarm(Tache tache) {
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, AlarmReceiver.class);
-        intent.putExtra("titre", tache.getTitreTache());
-        intent.putExtra("description", tache.getDescriptionTache());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, tache.getId(), intent, 0);
-        alarmManager.cancel(pendingIntent);
-
-    }
 
     private void supprimer(View view) {
         Tache tache = new Tache();
@@ -143,7 +132,8 @@ public class DetailsActivity extends AppCompatActivity {
         Log.d("tache", "tache supprimé: " + idTache);
         Dialog.showDialog(this, DialogType.SUPPRESSION, () -> {
             dbHelper.deleteTache(idTache);
-            supprimerAlarm(tache);
+            Alarm alarm = new Alarm(this, tache);
+            alarm.supprimerAlarm();
             finish();
         });
     }

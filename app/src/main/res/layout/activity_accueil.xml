@@ -34,15 +34,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
-
-
+        
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ajouterTache"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:backgroundTint="@color/white"
-            android:text="@string/enregistrer"
             android:textColor="#00B0FF" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
