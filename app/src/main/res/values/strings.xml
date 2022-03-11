@@ -1,18 +1,8 @@
 <resources>
-    <string name="app_name">MyPlanner</string>
-    <string name="title_activity_logo">LogoActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="register">Register</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="description_logo">Logo MyPlanner</string>
     <string name="nom_application">My Planner</string>
-    <string name="title_activity_test">TestActivity</string>
+    <string name="titre_activity_logo">LogoActivity</string>
+    <string name="description_logo">Logo MyPlanner</string>
+    <string name="titre_activity_test">TestActivity</string>
     <string name="enregistrer">Entregistrer une tâche</string>
     <string name="votre_todolist">remplissez les détails ci-dessous pour ajouter une tâche dans votre todolist</string>
     <string name="titre_de_la_tache">Titre de la tâche</string>
@@ -22,24 +12,22 @@
     <string name="ajouter_un_evenement">Ajouter un evenement</string>
     <string name="salut">Salut</string>
     <string name="fermer">Fermer</string>
-    <string name="mar">Mar</string>
-    <string name="fev">Fev</string>
-    <string name="complete">COMPLETE</string>
     <string name="modifier">Modifier</string>
-    <string name="supprimer">Supprimeer</string>
-    <string name="supprimer1">Supprimeer</string>
-    <string name="completer">Complete</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="completer">Completer</string>
     <string name="calendrier">le calendrier</string>
-    <string name="_15">15</string>
-    <string name="todo">TODO</string>
+    <string name="todo_icon">Icone todo</string>
     <string name="full_Description">Full house is the Grend prize in any tombola game played.</string>
     <string name="menuMiseajour">Mise à jour</string>
-    <string name="alertComplete">Voulez vous enregestrer definitivement cette tâche</string>
+    <string name="alertComplete">Voulez vous enregistrer definitivement cette tâche</string>
     <string name="comfirmationDialogue">Confirmation</string>
     <string name="suppressionDialogue">Voulez vous vraiment supprimer cette tâche</string>
-    <string name="oui1">Oui</string>
+    <string name="oui">Oui</string>
     <string name="titre">Titre</string>
     <string name="description">Description</string>
     <string name="calendrier_et_montre">Calendrier et Montre</string>
     <string name="montitre">Mon titre</string>
+    <string name="reminder">Reminder</string>
+    <string name="creation_de_compte">Création de compte</string>
+    <string name="non">NON</string>
 </resources>
