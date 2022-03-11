@@ -1,8 +1,7 @@
 <resources>
-    <string name="nom_application">My Planner</string>
-    <string name="titre_activity_logo">LogoActivity</string>
-    <string name="description_logo">Logo MyPlanner</string>
-    <string name="titre_activity_test">TestActivity</string>
+    <string name="titre_activity_logo">Logo de l\'activité</string>
+    <string name="description_logo">Logo Mon Agenda</string>
+    <string name="titre_activity_test">Test de mon activté</string>
     <string name="enregistrer">Entregistrer une tâche</string>
     <string name="votre_todolist">remplissez les détails ci-dessous pour ajouter une tâche dans votre todolist</string>
     <string name="titre_de_la_tache">Titre de la tâche</string>
@@ -15,11 +14,9 @@
     <string name="modifier">Modifier</string>
     <string name="supprimer">Supprimer</string>
     <string name="completer">Completer</string>
-    <string name="calendrier">le calendrier</string>
-    <string name="todo_icon">Icone todo</string>
-    <string name="full_Description">Full house is the Grend prize in any tombola game played.</string>
+    <string name="calendrier">Le calendrier</string>
     <string name="menuMiseajour">Mise à jour</string>
-    <string name="alertComplete">Voulez vous enregistrer definitivement cette tâche</string>
+    <string name="alertComplete">Voulez vous enregistrer definitivement cette tâche ?</string>
     <string name="comfirmationDialogue">Confirmation</string>
     <string name="suppression_dialog">Voulez vous vraiment supprimer cette tâche?</string>
     <string name="ajout_dialog">Voulez vous enregistrer cette tâche?</string>
@@ -29,7 +26,7 @@
     <string name="description">Description</string>
     <string name="calendrier_et_montre">Calendrier et Montre</string>
     <string name="montitre">Mon titre</string>
-    <string name="reminder">Reminder</string>
+    <string name="reminder">Rappel</string>
     <string name="creation_de_compte">Création de compte</string>
     <string name="non">Non</string>
     <string name="toast_erreur_temps">Vous ne pouvez pas créer de tâches dans le passé</string>
