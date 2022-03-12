@@ -46,4 +46,8 @@
     <string name="hint_username">Pseudo</string>
     <string name="plus" translatable="false">+</string>
     <string name="modifier_tache">Modifer les détails de votre tâche</string>
+    <string name="bienvenue_user">Bienvenue</string>
+    <string name="accueil">Accueil</string>
+    <string name="connexion">Connexion</string>
+    <string name="bienvenue_app">Bienvenue à votre application de gestion des taches</string>
 </resources>

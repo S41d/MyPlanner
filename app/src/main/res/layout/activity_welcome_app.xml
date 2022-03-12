@@ -7,33 +7,20 @@
     tools:context=".controllers.WelcomeAppActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textSize="50sp"
-        android:textColor="#FFFFFF"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal = "true"
-        android:layout_marginTop="100dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="to Your Planner, dear User"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal = "true"
-        android:layout_marginTop="160dp" />
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="250dp"
-        android:layout_centerHorizontal = "true"
-        android:src="@drawable/background" />
+        android:text="@string/bienvenue_app"
+        android:textAlignment="center"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-    <Button
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/accueil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,12 +29,12 @@
         android:layout_marginRight="40dp"
         android:background="@drawable/round_button_2"
         android:gravity="center"
-        android:text="ACCUEIL"
+        android:text="@string/accueil"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,10 +43,9 @@
         android:layout_marginRight="40dp"
         android:background="@drawable/round_button_2"
         android:gravity="center"
-        android:text="CONNEXION"
+        android:text="@string/connexion"
         android:textAllCaps="false"
         android:textColor="#FFF"
         android:textSize="20sp" />
-
 
 </RelativeLayout>

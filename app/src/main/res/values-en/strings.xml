@@ -43,4 +43,8 @@
     <string name="champ_vide">Field cannot be empty</string>
     <string name="hint_username">Username</string>
     <string name="modifier_tache">Modify the details of your task</string>
+    <string name="bienvenue_user">Welcome to your tasks planner</string>
+    <string name="accueil">Homepage</string>
+    <string name="connexion">Login</string>
+    <string name="bienvenue_app">Welcome to your task manager</string>
 </resources>

@@ -1,52 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-android:background="@drawable/background"
-tools:context=".controllers.WelcomeUserActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    tools:context=".controllers.WelcomeAppActivity">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Welcome"
-    android:textSize="50sp"
-    android:textColor="#FFFFFF"
-    android:layout_alignParentTop = "true"
-    android:layout_centerHorizontal = "true"
-    android:layout_marginTop="100dp" />
-
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="to Your Private Space, dear User"
-    android:textSize="25sp"
-    android:textColor="#FFFFFF"
-    android:layout_alignParentTop = "true"
-    android:layout_centerHorizontal = "true"
-    android:layout_marginTop="160dp" />
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        android:src="@drawable/background" />
-
-    <Button
-        android:id="@+id/accueil"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="480dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/round_button_2"
-        android:gravity="center"
-        android:text="ACCUEIL"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="20sp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="250dp"
+        android:text="@string/bienvenue_user"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
-
+    <TextView
+        android:id="@+id/username_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/blue_400"
+        android:textSize="50sp" />
 
 </RelativeLayout>

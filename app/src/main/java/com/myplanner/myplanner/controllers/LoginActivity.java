@@ -77,7 +77,8 @@ public class LoginActivity extends AppCompatActivity {
             if (user == null) {
                 Toast.makeText(this, R.string.compte_inexistant, Toast.LENGTH_SHORT).show();
             } else {
-                User.setUserConnecte(user);
+                User.setUserConnecte(user, this);
+                finish();
             }
         }
     }
