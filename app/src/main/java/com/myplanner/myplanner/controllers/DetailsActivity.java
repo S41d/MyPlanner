@@ -10,12 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.helper.Alarm;
@@ -28,7 +28,7 @@ import java.util.Calendar;
 public class DetailsActivity extends AppCompatActivity {
 
     DBHelper dbHelper;
-    EditText titre, description, date, heure;
+    TextInputEditText titreEditText, descriptionEditText, dateEditText, heureEditText;
     Button modifier, supprimer;
     int idTache;
     LinearLayout layout;
@@ -38,29 +38,34 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        getSupportActionBar().hide();
+
         this.dbHelper = new DBHelper(this);
 
-        // desapparaitre le clavier quand on clique en dehors de editText
         layout = findViewById(R.id.layout_details);
-        titre = findViewById(R.id.editTextTitre);
-        description = findViewById(R.id.editTextDescription);
-        date = findViewById(R.id.editTextDate);
-        heure = findViewById(R.id.editTextHeure);
+
+        titreEditText = findViewById(R.id.edit_text_titre);
+        descriptionEditText = findViewById(R.id.edit_text_description);
+        dateEditText = findViewById(R.id.edit_text_date);
+        heureEditText = findViewById(R.id.edit_text_heure);
+
         modifier = findViewById(R.id.btnModifierTache);
         supprimer = findViewById(R.id.btnSupprimerTache);
 
-        date.setOnClickListener(this::showDateDialog);
-        heure.setOnClickListener(this::showHourDialog);
+        // desapparaitre le clavier quand on clique en dehors de editText
         layout.setOnClickListener(this::hideKeyboard);
+
+        dateEditText.setOnClickListener(this::showDateDialog);
+        heureEditText.setOnClickListener(this::showHourDialog);
         modifier.setOnClickListener(this::modifier);
         supprimer.setOnClickListener(this::supprimer);
 
         Intent intent = getIntent();
         if (intent != null) {
-            this.titre.setText(intent.getStringExtra("titre"));
-            this.description.setText(intent.getStringExtra("description"));
-            this.date.setText(intent.getStringExtra("date"));
-            this.heure.setText(intent.getStringExtra("heure"));
+            this.titreEditText.setText(intent.getStringExtra("titre"));
+            this.descriptionEditText.setText(intent.getStringExtra("description"));
+            this.dateEditText.setText(intent.getStringExtra("date"));
+            this.heureEditText.setText(intent.getStringExtra("heure"));
             this.idTache = Integer.parseInt(intent.getStringExtra("id"));
         }
     }
@@ -70,8 +75,8 @@ public class DetailsActivity extends AppCompatActivity {
         int currentMinute = calendar.get(Calendar.MINUTE);
 
         @SuppressLint("DefaultLocale")
-        TimePickerDialog heureTimePicker = new TimePickerDialog(this, (timePicker, currentHour1, currentMinute1) -> {
-            heure.setText(String.format("%02d:%02d ", currentHour1, currentMinute1));
+        TimePickerDialog heureTimePicker = new TimePickerDialog(this, R.style.datepicker, (timePicker, currentHour1, currentMinute1) -> {
+            heureEditText.setText(String.format("%02d:%02d ", currentHour1, currentMinute1));
             calendar.set(Calendar.HOUR_OF_DAY, currentHour1);
             calendar.set(Calendar.MINUTE, currentMinute1);
             calendar.set(Calendar.SECOND, 0);
@@ -87,8 +92,8 @@ public class DetailsActivity extends AppCompatActivity {
 
         // date picker Dialogue
         @SuppressLint("SetTextI18n")
-        DatePickerDialog datePicker = new DatePickerDialog(this, (datePickerArg, year1, month1, dayOfMonth) -> {
-            date.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
+        DatePickerDialog datePicker = new DatePickerDialog(this, R.style.datepicker, (datePickerArg, year1, month1, dayOfMonth) -> {
+            dateEditText.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             calendar.set(Calendar.MONTH, month1);
             calendar.set(Calendar.YEAR, year1);
@@ -108,10 +113,10 @@ public class DetailsActivity extends AppCompatActivity {
         } else {
             Tache tache = new Tache();
             tache.setId(idTache);
-            tache.setTitreTache(this.titre.getText().toString());
-            tache.setDescriptionTache(this.description.getText().toString());
-            tache.setJourTache(this.date.getText().toString());
-            tache.setHeureTache(this.heure.getText().toString());
+            tache.setTitreTache(this.titreEditText.getText().toString());
+            tache.setDescriptionTache(this.descriptionEditText.getText().toString());
+            tache.setJourTache(this.dateEditText.getText().toString());
+            tache.setHeureTache(this.heureEditText.getText().toString());
             Dialog.showDialog(this, DialogType.MODIFICATION, () -> {
                 dbHelper.updateTache(tache);
                 Alarm alarm = new Alarm(this, tache);
@@ -125,10 +130,10 @@ public class DetailsActivity extends AppCompatActivity {
     private void supprimer(View view) {
         Tache tache = new Tache();
         tache.setId(idTache);
-        tache.setTitreTache(this.titre.getText().toString());
-        tache.setDescriptionTache(this.description.getText().toString());
-        tache.setJourTache(this.date.getText().toString());
-        tache.setHeureTache(this.heure.getText().toString());
+        tache.setTitreTache(this.titreEditText.getText().toString());
+        tache.setDescriptionTache(this.descriptionEditText.getText().toString());
+        tache.setJourTache(this.dateEditText.getText().toString());
+        tache.setHeureTache(this.heureEditText.getText().toString());
         Log.d("tache", "tache supprimé: " + idTache);
         Dialog.showDialog(this, DialogType.SUPPRESSION, () -> {
             dbHelper.deleteTache(idTache);

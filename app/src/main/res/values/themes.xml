@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.MyPlanner" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/blue_400</item>
+        <item name="colorPrimaryVariant">@color/blue_400_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -12,6 +12,39 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="datepicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/blue_400_dark</item>
+        <!--selected Item color-->
+        <item name="colorControlActivated">#2196F3</item>
+        <!-- arrow bordercolor(<>)-->
+<!--        <item name="android:selectableItemBackgroundBorderless">@color/border</item>-->
+        <!-- Highlight item color-->
+        <item name="colorControlHighlight">@color/blue_400_dark</item>
+        <!--Calender Background color -->
+<!--        <item name="android:windowBackground">@color/dialogWindowBg</item>-->
+        <!-- Ok Cancel Color-->
+        <item name="android:textColor">@color/white</item>
+        <!-- Week TextColor-->
+        <item name="android:textColorSecondary">@color/blue_400</item>
+        <!-- Calender Number color arrow color (< >) -->
+        <item name="android:textColorPrimary">#3F51B5</item>
+        <!--day , month-->
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <!-- year-->
+        <item name="android:textColorSecondaryInverse">@color/white</item>
+    </style>
+
+    <style name="CalenderViewDateCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/blue_400_light</item>
+        <item name="android:textColorPrimary">@color/blue_400</item>
+    </style>
+    <style name="CalenderViewDateCustomText" parent="Theme.AppCompat">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="CalenderViewWeekCustom" parent="Theme.AppCompat">
+        <item name="android:textColor">@color/blue_400_dark</item>
     </style>
 
     <style name="Theme.MyPlanner.NoActionBar">

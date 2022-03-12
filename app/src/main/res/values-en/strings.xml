@@ -3,11 +3,11 @@
     <string name="description_logo" translatable="true">Logo MyPlanner</string>
     <string name="titre_activity_test" translatable="true">Test Activity</string>
     <string name="enregistrer" translatable="true">Save</string>
-    <string name="votre_todolist" translatable="true">fill in the details below to add a task to your todolist</string>
+    <string name="votre_todolist" translatable="true">Fill in the details below to add a task to your todolist</string>
     <string name="titre_de_la_tache" translatable="true">Task title</string>
     <string name="description_de_la_tache" translatable="true">Description of the task</string>
-    <string name="date_de_la_tache" translatable="true">Task date</string>
-    <string name="heure_de_la_tache" translatable="true">Task time</string>
+    <string name="date_de_la_tache" translatable="true">Date</string>
+    <string name="heure_de_la_tache" translatable="true">Time</string>
     <string name="ajouter_un_evenement" translatable="true">Add an event</string>
     <string name="salut" translatable="true">Hello</string>
     <string name="fermer" translatable="true">Close</string>
@@ -42,4 +42,5 @@
     <string name="compte_deja_existe">The email is already in use</string>
     <string name="champ_vide">Field cannot be empty</string>
     <string name="hint_username">Username</string>
+    <string name="modifier_tache">Modify the details of your task</string>
 </resources>

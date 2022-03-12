@@ -1,120 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_details"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".controllers.DetailsActivity"
+    android:background="@color/blue_400"
     android:orientation="vertical"
-    android:background="#00B0FF"
-    android:id="@+id/layout_details"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".controllers.DetailsActivity">
 
     <TextView
         android:id="@+id/textview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_margin="20dp"
+        android:gravity="center"
         android:text="@string/modifier"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner">
+        android:background="@drawable/rounded_corner"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/textview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            android:text="@string/votre_todolist"
+            android:layout_margin="20dp"
+            android:text="@string/modifier_tache"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textAlignment="center"/>
+            android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextTitre"
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_titre_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="@string/titre"
-            android:background="#3000B0FF"
-            android:padding="10dp"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            android:layout_margin="10dp"/>
+            app:startIconDrawable="@drawable/ic_baseline_title_24">
 
-        <EditText
-            android:id="@+id/editTextDescription"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_titre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_description_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:hint="@string/description"
-            android:background="#3000B0FF"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:lines="10"
-            android:inputType="textMultiLine"
-            android:importantForAutofill="no"
-            android:gravity="top"/>
+            app:startIconDrawable="@drawable/ic_baseline_description_24">
 
-        <EditText
-            android:id="@+id/editTextDate"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_date_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3000B0FF"
-            android:padding="10dp"
             android:layout_margin="10dp"
-            android:calendarTextColor="@color/black"
             android:hint="@string/date_de_la_tache"
-            android:inputType="date"
-            android:importantForAutofill="no"
-            android:focusable="false"/>
-        <EditText
-            android:id="@+id/editTextHeure"
+            app:startIconDrawable="@drawable/ic_baseline_date_range_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="date" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edit_text_heure_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3000B0FF"
-            android:padding="10dp"
             android:layout_margin="10dp"
-            android:calendarTextColor="@color/black"
             android:hint="@string/heure_de_la_tache"
-            android:inputType="time"
-            android:focusable="false"
-            android:importantForAutofill="no" />
+            app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_heure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="time" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:divider="@drawable/email"
+            android:orientation="horizontal"
+            android:showDividers="middle">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnModifierTache"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_400"
                 android:text="@string/menu_mise_a_jour"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/white" />
+                android:textColor="@color/white" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSupprimerTache"
-                android:layout_width="150dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:backgroundTint="@color/blue_400"
                 android:text="@string/supprimer"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/white" />
+                android:textColor="@color/white"
+                tools:ignore="RelativeOverlap" />
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

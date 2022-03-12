@@ -4,11 +4,11 @@
     <string name="description_logo">Logo Mon Agenda</string>
     <string name="titre_activity_test">Test de mon activté</string>
     <string name="enregistrer">Entregistrer une tâche</string>
-    <string name="votre_todolist">remplissez les détails ci-dessous pour ajouter une tâche dans votre todolist</string>
+    <string name="votre_todolist">Remplissez les champs ci-dessous</string>
     <string name="titre_de_la_tache">Titre de la tâche</string>
     <string name="description_de_la_tache">Description de la tâche</string>
-    <string name="date_de_la_tache">Date de la tâche</string>
-    <string name="heure_de_la_tache">Heure de la tâche</string>
+    <string name="date_de_la_tache">Date</string>
+    <string name="heure_de_la_tache">Heure</string>
     <string name="ajouter_un_evenement">Ajouter un evenement</string>
     <string name="salut">Salut</string>
     <string name="fermer">Fermer</string>
@@ -31,7 +31,7 @@
     <string name="creation_de_compte">Création de compte</string>
     <string name="non">Non</string>
     <string name="toast_erreur_temps">Vous ne pouvez pas créer de tâches dans le passé</string>
-    <string name="alarm" translatable="false">alarme</string>
+    <string name="alarm" translatable="false">Alarme</string>
     <string name="compte_inexistant">Ce compte n\'existe pas</string>
     <string name="hint_mot_de_passe">Mot de passe</string>
     <string name="hint_email">E-mail</string>
@@ -45,4 +45,5 @@
     <string name="champ_vide">Ce champ ne peut pas etre vide</string>
     <string name="hint_username">Pseudo</string>
     <string name="plus" translatable="false">+</string>
+    <string name="modifier_tache">Modifer les détails de votre tâche</string>
 </resources>

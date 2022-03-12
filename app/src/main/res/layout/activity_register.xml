@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     tools:context=".controllers.RegisterActivity">
 
@@ -19,19 +19,20 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_layout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="250dp"
         android:layout_marginRight="40dp"
         android:drawablePadding="5dp"
         android:gravity="start"
+        android:hint="@string/hint_email"
         app:errorEnabled="true"
-        app:startIconDrawable="@drawable/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_email">
+        app:startIconDrawable="@drawable/email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_register"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -39,47 +40,48 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_layout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="340dp"
         android:layout_marginRight="40dp"
-        app:startIconDrawable="@drawable/lock"
+        android:hint="@string/hint_mot_de_passe"
         app:endIconDrawable="@drawable/eye_off"
         app:endIconMode="custom"
         app:errorEnabled="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_mot_de_passe">
+        app:startIconDrawable="@drawable/lock">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password_register"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_layout_register"
+        android:drawablePadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="430dp"
         android:layout_marginRight="40dp"
-        android:drawablePadding="5dp"
         android:gravity="start"
+        android:hint="@string/hint_username"
         app:errorEnabled="true"
-        app:startIconDrawable="@drawable/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_username">
+        app:startIconDrawable="@drawable/email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username_register"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,13 +111,14 @@
         android:id="@+id/login2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5sp"
         android:layout_marginTop="600dp"
         android:layout_toEndOf="@+id/login1"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="sans-serif"
         android:text="@string/deja_compte_btn_message"
-        android:textColor="#007BD9"
+        android:textColor="@color/blue_400_dark"
         android:textSize="12sp" />
 
 </RelativeLayout>

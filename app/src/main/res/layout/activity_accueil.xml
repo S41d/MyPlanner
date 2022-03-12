@@ -6,13 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".controllers.AccueilActivity">
-<!--    android:background="@color/black"-->
+
     <CalendarView
         android:id="@+id/calendrier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:firstDayOfWeek="@android:integer/config_longAnimTime"
+        android:theme="@style/CalenderViewDateCustom"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustom"
+        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.35"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +38,6 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ajouterTache"
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
@@ -44,7 +47,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/purple_700"
+            android:backgroundTint="@color/blue_400"
             android:text="@string/plus"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/white"
