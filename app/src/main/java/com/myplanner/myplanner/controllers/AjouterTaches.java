@@ -1,16 +1,10 @@
 package com.myplanner.myplanner.controllers;
 
-import android.app.AlarmManager;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,8 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.myplanner.myplanner.adapter.AlarmReceiver;
-import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.helper.Alarm;
 import com.myplanner.myplanner.helper.dialog.Dialog;
 import com.myplanner.myplanner.helper.dialog.DialogType;
@@ -41,13 +34,14 @@ public class AjouterTaches extends AppCompatActivity {
     EditText heureTache;
     Button btnAjoutTache;
 
-    private Calendar calendar = Calendar.getInstance();
+    private final Calendar calendar = Calendar.getInstance();
 
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajouter_taches);
-        createNotificationChannel();
+        Alarm.createNotificationChannel(this);
 
         // desapparaitre le clavier quand on clique en dehors de editText
         layout = findViewById(R.id.layout_ajouter);
@@ -64,7 +58,7 @@ public class AjouterTaches extends AppCompatActivity {
         heureTache = findViewById(R.id.editTextHeure);
         btnAjoutTache = findViewById(R.id.btnAjouterTache);
 
-        TacheDBHelper dbHelper = new TacheDBHelper(this);
+        DBHelper dbHelper = new DBHelper(this);
 
         //Affichage du calendrier
         jourTache.setOnClickListener(view -> {
@@ -117,18 +111,5 @@ public class AjouterTaches extends AppCompatActivity {
                 });
             }
         });
-    }
-
-    public void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "myplannerAlarmChannel";
-            String description = "Channel des alarmes de MyPlanner";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("myplanner", name, importance);
-            channel.setDescription(description);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
     }
 }

@@ -28,9 +28,6 @@
             android:name=".controllers.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".controllers.LogoActivity"
-            android:exported="true" />
-        <activity
             android:name=".controllers.WelcomeAppActivity"
             android:exported="false" />
         <activity

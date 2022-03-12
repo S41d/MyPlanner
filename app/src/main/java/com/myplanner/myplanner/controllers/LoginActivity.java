@@ -2,25 +2,29 @@ package com.myplanner.myplanner.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
+import android.text.Editable;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.myplanner.myplanner.R;
-import com.myplanner.myplanner.database.UserDBHelper;
+import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.model.User;
 
 public class LoginActivity extends AppCompatActivity {
     // Declaration of global variables.
-    EditText pass, email;
-    Button register, login;
-    ImageView eye;
-    boolean state = false;
+
+    TextInputLayout emailLayout, passwordLayout;
+    TextInputEditText email, password;
+    Button login;
+    TextView register;
+    boolean mdpVisible = false;
 
     // Default function call on creation of an activity.
     @Override
@@ -28,10 +32,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Instantiate the View elements
+        emailLayout = findViewById(R.id.email_layout);
+        passwordLayout = findViewById(R.id.password_layout);
+        password = findViewById(R.id.password);
         email = findViewById(R.id.email);
-        pass = findViewById(R.id.pass1);
-        eye = findViewById(R.id.toggle_view1);
-        register = findViewById(R.id.register);
+
+        passwordLayout.setEndIconOnClickListener(view -> {
+            mdpVisible = !mdpVisible;
+            if (mdpVisible) {
+                passwordLayout.setEndIconDrawable(R.drawable.eye);
+                password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            } else {
+                passwordLayout.setEndIconDrawable(R.drawable.eye_off);
+                password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            }
+        });
+        register = findViewById(R.id.register2);
         login = findViewById(R.id.login);
 
         register.setOnClickListener(this::register);
@@ -45,22 +61,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        UserDBHelper helper = new UserDBHelper(this);
-        User user = helper.get(email.getText().toString(), pass.getText().toString());
-        User.setUserConnecte(user);
-    }
-
-    // For toggling visibility of password.
-    public void toggle(View v){
-        if(!state){
-            pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            // eye.setImageResource(R.drawable.eye);
+        DBHelper helper = new DBHelper(this);
+        Editable emailVal = email.getText();
+        Editable passVal = password.getText();
+        if (emailVal == null || emailVal.toString().equals("")) {
+            emailLayout.setError(getResources().getString(R.string.champ_vide));
+        } else if (passVal == null || passVal.toString().equals("")) {
+            passwordLayout.setError(getResources().getString(R.string.champ_vide));
+        } else {
+            passwordLayout.setErrorEnabled(false);
+            emailLayout.setErrorEnabled(false);
+            User user = helper.getUser(emailVal.toString(), passVal.toString());
+            if (user == null) {
+                Toast.makeText(this, R.string.compte_inexistant, Toast.LENGTH_SHORT).show();
+            } else {
+                User.setUserConnecte(user);
+            }
         }
-        else{
-            pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            // eye.setImageResource(R.drawable.eye_off);
-        }
-        pass.setSelection(pass.getText().length());
-        state = !state;
     }
 }

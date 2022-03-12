@@ -1,5 +1,7 @@
 package com.myplanner.myplanner.model;
 
+import android.util.Log;
+
 public class User {
     static User userConnecte;
     private int id;
@@ -20,6 +22,7 @@ public class User {
 
     public static void setUserConnecte(User userConnecte) {
         User.userConnecte = userConnecte;
+        Log.d("Connexion", "User connecté: " + userConnecte.username);
     }
 
     public int getId() {

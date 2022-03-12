@@ -1,4 +1,5 @@
 <resources>
+    <string name="nom_application" translatable="false">MyPlanner</string>
     <string name="titre_activity_logo">Logo de l\'activité</string>
     <string name="description_logo">Logo Mon Agenda</string>
     <string name="titre_activity_test">Test de mon activté</string>
@@ -15,9 +16,9 @@
     <string name="supprimer">Supprimer</string>
     <string name="completer">Completer</string>
     <string name="calendrier">Le calendrier</string>
-    <string name="menuMiseajour">Mise à jour</string>
-    <string name="alertComplete">Voulez vous enregistrer definitivement cette tâche ?</string>
-    <string name="comfirmationDialogue">Confirmation</string>
+    <string name="menu_mise_a_jour">Mise à jour</string>
+    <string name="alert_complete">Voulez vous enregistrer definitivement cette tâche ?</string>
+    <string name="confirmation_dialog">Confirmation</string>
     <string name="suppression_dialog">Voulez vous vraiment supprimer cette tâche?</string>
     <string name="ajout_dialog">Voulez vous enregistrer cette tâche?</string>
     <string name="modification_dialog">Voulez vous vraiment modifier cette tâche?</string>
@@ -30,4 +31,18 @@
     <string name="creation_de_compte">Création de compte</string>
     <string name="non">Non</string>
     <string name="toast_erreur_temps">Vous ne pouvez pas créer de tâches dans le passé</string>
+    <string name="alarm" translatable="false">alarme</string>
+    <string name="compte_inexistant">Ce compte n\'existe pas</string>
+    <string name="hint_mot_de_passe">Mot de passe</string>
+    <string name="hint_email">E-mail</string>
+    <string name="login">Se connecter</string>
+    <string name="creer_compte_message">Vous n\'avez pas de compte?</string>
+    <string name="creer_compte_btn_message">Créez en un</string>
+    <string name="deja_compte_btn_message">Connectez-vous</string>
+    <string name="deja_compte_message">Vous avez déjà un compte?</string>
+    <string name="creer_compte">Créer votre compte</string>
+    <string name="compte_deja_existe">Un compte avec cet e-mail existe déjà</string>
+    <string name="champ_vide">Ce champ ne peut pas etre vide</string>
+    <string name="hint_username">Pseudo</string>
+    <string name="plus" translatable="false">+</string>
 </resources>

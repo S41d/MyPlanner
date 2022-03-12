@@ -1,19 +1,21 @@
 package com.myplanner.myplanner.controllers;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CalendarView;
 
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.adapter.RecyclerViewAdapter;
 import com.myplanner.myplanner.adapter.RecyclerViewInterface;
-import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.model.Tache;
 
 import java.util.ArrayList;
@@ -24,17 +26,19 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
     ArrayList<Tache> taches = new ArrayList<>();
     ArrayList<Tache> tachesView = new ArrayList<>();
 
-    TacheDBHelper helper = new TacheDBHelper(this);
+    DBHelper helper = new DBHelper(this);
     RecyclerViewAdapter adapter;
     CalendarView calendarView;
     RecyclerView recyclerView;
     Button ajouterTache;
+    Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        finish();
-        startActivity(getIntent());
+        taches = helper.getAllTaches();
+        tachesView = new ArrayList<>(taches);
+        updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
     }
 
     @Override
@@ -44,6 +48,7 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
 
         recyclerView = findViewById(R.id.recycler_view);
         calendarView = findViewById(R.id.calendrier);
+        ajouterTache = findViewById(R.id.ajouterTache);
 
         taches = helper.getAllTaches();
         tachesView = new ArrayList<>(taches);
@@ -53,16 +58,17 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // appel de la vue de l'ajout d'une nouvelle tâche
-        ajouterTache = findViewById(R.id.ajouterTache);
         ajouterTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
 
-        Calendar calendar = Calendar.getInstance();
-        changeDate(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        calendarView.setOnDateChangeListener(this::changeDate);
+        updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        calendarView.setOnDateChangeListener(this::updateList);
     }
 
 
-    private void changeDate(CalendarView calendarView, int year, int month, int day) {
+    private void updateList(CalendarView calendarView, int year, int month, int day) {
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
         ArrayList<Tache> filtered = new ArrayList<>();
         for (int i = 0, tachesSize = taches.size(); i < tachesSize; i++) {
             Tache tache = taches.get(i);
@@ -87,5 +93,20 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         intent.putExtra("date", tachesAdapter.get(position).getJourTache());
         intent.putExtra("heure", tachesAdapter.get(position).getHeureTache());
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.button_compte, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.btn_open_login) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

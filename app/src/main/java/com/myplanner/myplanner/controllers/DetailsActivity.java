@@ -1,8 +1,7 @@
 package com.myplanner.myplanner.controllers;
 
-import android.app.AlarmManager;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -18,8 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myplanner.myplanner.R;
-import com.myplanner.myplanner.adapter.AlarmReceiver;
-import com.myplanner.myplanner.database.TacheDBHelper;
+import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.helper.Alarm;
 import com.myplanner.myplanner.helper.dialog.Dialog;
 import com.myplanner.myplanner.helper.dialog.DialogType;
@@ -29,7 +27,7 @@ import java.util.Calendar;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    TacheDBHelper dbHelper;
+    DBHelper dbHelper;
     EditText titre, description, date, heure;
     Button modifier, supprimer;
     int idTache;
@@ -40,7 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        this.dbHelper = new TacheDBHelper(this);
+        this.dbHelper = new DBHelper(this);
 
         // desapparaitre le clavier quand on clique en dehors de editText
         layout = findViewById(R.id.layout_details);
@@ -71,6 +69,7 @@ public class DetailsActivity extends AppCompatActivity {
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
         int currentMinute = calendar.get(Calendar.MINUTE);
 
+        @SuppressLint("DefaultLocale")
         TimePickerDialog heureTimePicker = new TimePickerDialog(this, (timePicker, currentHour1, currentMinute1) -> {
             heure.setText(String.format("%02d:%02d ", currentHour1, currentMinute1));
             calendar.set(Calendar.HOUR_OF_DAY, currentHour1);
@@ -87,6 +86,7 @@ public class DetailsActivity extends AppCompatActivity {
         calendar.set(year, month, day);
 
         // date picker Dialogue
+        @SuppressLint("SetTextI18n")
         DatePickerDialog datePicker = new DatePickerDialog(this, (datePickerArg, year1, month1, dayOfMonth) -> {
             date.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
