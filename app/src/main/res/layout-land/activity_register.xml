@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:padding="1dip"
+    tools:context=".controllers.RegisterActivity">
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        android:text="@string/creation_de_compte"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"/>
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*"
+            android:padding="1dip">
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_layout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="40dp"
+        android:drawablePadding="5dp"
+        android:gravity="start"
+        android:hint="@string/hint_email"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/email"
+        android:layout_span="2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_register"
+            android:backgroundTint="@color/white"
+            android:layout_width="500dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_layout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="40dp"
+        android:hint="@string/hint_mot_de_passe"
+        app:endIconDrawable="@drawable/eye_off"
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/lock"
+        android:layout_span="2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_register"
+            android:backgroundTint="@color/white"
+            android:layout_width="500dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/username_layout_register"
+        android:drawablePadding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="40dp"
+        android:gravity="start"
+        android:hint="@string/hint_username"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/email"
+        android:layout_span="2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username_register"
+            android:backgroundTint="@color/white"
+            android:layout_width="500dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/round_button_2"
+        android:gravity="center"
+        android:text="@string/creer_compte"
+        android:textAllCaps="false"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:layout_span="2"/>
+
+    </TableRow>
+
+
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dip">
+    <TextView
+        android:id="@+id/login1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="1dp"
+        android:focusable="true"
+        android:fontFamily="sans-serif"
+        android:text="@string/deja_compte_message"
+        android:textAlignment="textEnd"
+        android:textColor="#FFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/login2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5sp"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@+id/login1"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="sans-serif"
+        android:text="@string/deja_compte_btn_message"
+        android:textColor="@color/blue_400_dark"
+        android:textSize="12sp" />
+
+    </TableRow>
+
+        </TableLayout>
+
+    </TableRow>
+</TableLayout>
