@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.649"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,6 +37,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layoutAnimation="@anim/recycler_view_animation"
             android:scrollbars="vertical" />
 
         <com.google.android.material.button.MaterialButton

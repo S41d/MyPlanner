@@ -5,7 +5,7 @@
     android:id="@+id/layout_ajouter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00B0FF"
+    android:background="@color/blue_400"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".controllers.AjouterTaches">

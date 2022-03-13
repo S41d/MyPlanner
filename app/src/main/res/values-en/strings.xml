@@ -2,7 +2,7 @@
     <string name="titre_activity_logo" translatable="true">Activity logo</string>
     <string name="description_logo" translatable="true">Logo MyPlanner</string>
     <string name="titre_activity_test" translatable="true">Test Activity</string>
-    <string name="enregistrer" translatable="true">Save</string>
+    <string name="enregistrer" translatable="true">Create a new task</string>
     <string name="votre_todolist" translatable="true">Fill in the details below to add a task to your todolist</string>
     <string name="titre_de_la_tache" translatable="true">Task title</string>
     <string name="description_de_la_tache" translatable="true">Description of the task</string>

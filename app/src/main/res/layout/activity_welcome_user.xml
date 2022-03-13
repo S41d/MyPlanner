@@ -6,7 +6,16 @@
     android:background="@drawable/background"
     tools:context=".controllers.WelcomeAppActivity">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:contentDescription="@string/description_logo"
+        android:src="@drawable/logo" />
+
     <TextView
+        android:id="@+id/welcome_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,7 +33,7 @@
         android:layout_marginTop="350dp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/blue_400"
+        android:textColor="@color/white"
         android:textSize="50sp" />
 
 </RelativeLayout>

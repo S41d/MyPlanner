@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 
@@ -17,6 +18,7 @@ import com.myplanner.myplanner.adapter.RecyclerViewAdapter;
 import com.myplanner.myplanner.adapter.RecyclerViewInterface;
 import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.model.Tache;
+import com.myplanner.myplanner.model.User;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +41,7 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         taches = helper.getAllTaches();
         tachesView = new ArrayList<>(taches);
         updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        userConnectedCheck();
     }
 
     @Override
@@ -61,9 +64,19 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         ajouterTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
 
         updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        calendarView.setOnDateChangeListener(this::updateList);
+        userConnectedCheck();
     }
 
+    private void userConnectedCheck() {
+        if (User.getUserConnecte(this) == null) {
+            ajouterTache.setVisibility(View.INVISIBLE);
+            calendarView.setOnDateChangeListener((calendarView, year, month, day) -> {
+            });
+        } else {
+            ajouterTache.setVisibility(View.VISIBLE);
+            calendarView.setOnDateChangeListener(this::updateList);
+        }
+    }
 
     private void updateList(CalendarView calendarView, int year, int month, int day) {
         calendar.set(Calendar.YEAR, year);
@@ -81,6 +94,7 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
             }
         }
         adapter.filterList(filtered);
+        recyclerView.startLayoutAnimation();
     }
 
     @Override
