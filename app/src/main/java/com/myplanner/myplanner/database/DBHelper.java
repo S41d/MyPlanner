@@ -71,9 +71,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public User getUser(String email, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String whereClause = "email like ?";
-        String[] whereArgs = new String[]{email};
-        ArrayList<User> listUser = new ArrayList<>();
+        String whereClause = USER_EMAIL + " LIKE ? AND " + USER_PASSWORD + " LIKE ?";
+        String[] whereArgs = new String[]{email, password};
         String[] columns = {
                 USER_ID,
                 USER_EMAIL,

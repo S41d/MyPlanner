@@ -65,16 +65,14 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
 
         updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         userConnectedCheck();
+        calendarView.setOnDateChangeListener(this::updateList);
     }
 
     private void userConnectedCheck() {
         if (User.getUserConnecte(this) == null) {
             ajouterTache.setVisibility(View.INVISIBLE);
-            calendarView.setOnDateChangeListener((calendarView, year, month, day) -> {
-            });
         } else {
             ajouterTache.setVisibility(View.VISIBLE);
-            calendarView.setOnDateChangeListener(this::updateList);
         }
     }
 

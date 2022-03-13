@@ -17,6 +17,8 @@ import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.database.DBHelper;
 import com.myplanner.myplanner.model.User;
 
+import java.util.Objects;
+
 public class RegisterActivity extends AppCompatActivity {
     // Declaration of global variables.
     Button register;
@@ -30,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         // Instantiate the View elements
         emailLayout = findViewById(R.id.email_layout_register);
@@ -77,7 +79,8 @@ public class RegisterActivity extends AppCompatActivity {
             User user = helper.getUser(emailVal.toString(), passVal.toString());
             if (user == null) {
                 helper.insertUser(userVal.toString(), emailVal.toString(), passVal.toString());
-                startActivity(new Intent(this, AccueilActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
             } else {
                 Toast.makeText(this, R.string.compte_deja_existe, Toast.LENGTH_SHORT).show();
             }
