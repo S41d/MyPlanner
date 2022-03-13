@@ -9,16 +9,17 @@
 
     <CalendarView
         android:id="@+id/calendrier"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:background="@color/white"
+        android:layout_gravity="center"
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
         android:firstDayOfWeek="@android:integer/config_longAnimTime"
         android:theme="@style/CalenderViewDateCustom"
-        android:dateTextAppearance="@style/CalenderViewDateCustomText"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustom"
-        android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.35"
+        app:layout_constraintHeight_percent="0"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0" />
 
@@ -35,7 +36,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutAnimation="@anim/recycler_view_animation"
             android:scrollbars="vertical" />
@@ -49,7 +50,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/blue_400"
+            android:backgroundTint="@color/blue_400_dark"
             android:text="@string/plus"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/white"

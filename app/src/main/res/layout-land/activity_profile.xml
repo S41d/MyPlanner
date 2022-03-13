@@ -1,101 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_ajouter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_400"
-    android:shrinkColumns="*"
-    android:stretchColumns="*"
-    android:padding="10dip"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".controllers.AjouterTaches">
 
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dip">
     <TextView
         android:id="@+id/textview1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
+        android:layout_margin="20dp"
         android:gravity="center"
         android:text="@string/details_compte"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold" />
-    </TableRow>
 
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dip">
-
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rounded_corner"
+        android:orientation="vertical"
         android:padding="10dp">
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/hint_username"
-            app:startIconDrawable="@drawable/email">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username"
-                android:layout_width="500dp"
-                android:layout_gravity="center"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="text" />
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:hint="@string/hint_username"
+                app:startIconDrawable="@drawable/email">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="text" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/hint_email"
-            app:startIconDrawable="@drawable/ic_baseline_person_24">
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
-                android:layout_width="500dp"
-                android:layout_gravity="center"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:focusable="false"
-                android:inputType="textEmailAddress" />
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:hint="@string/hint_email"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/deconnexion"
-            android:layout_width="500dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:text="@string/logout"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="150dp"
             android:textColor="@color/white"
             app:backgroundTint="@color/blue_400" />
-    </TableLayout>
-    </TableRow>
-</TableLayout>
+    </LinearLayout>
+</LinearLayout>

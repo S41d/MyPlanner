@@ -49,7 +49,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/blue_400"
+            android:backgroundTint="@color/blue_400_dark"
             android:text="@string/plus"
             android:textAppearance="?android:textAppearanceLarge"
             android:textColor="@color/white"
