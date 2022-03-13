@@ -38,10 +38,9 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
     @Override
     protected void onRestart() {
         super.onRestart();
-        taches = helper.getAllTaches();
+        userConnectedCheck();
         tachesView = new ArrayList<>(taches);
         updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        userConnectedCheck();
     }
 
     @Override
@@ -53,7 +52,8 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         calendarView = findViewById(R.id.calendrier);
         ajouterTache = findViewById(R.id.ajouterTache);
 
-        taches = helper.getAllTaches();
+        userConnectedCheck();
+
         tachesView = new ArrayList<>(taches);
         adapter = new RecyclerViewAdapter(this, tachesView, this);
 
@@ -64,15 +64,16 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
         ajouterTache.setOnClickListener(view -> startActivity(new Intent(this, AjouterTaches.class)));
 
         updateList(calendarView, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-        userConnectedCheck();
         calendarView.setOnDateChangeListener(this::updateList);
     }
 
     private void userConnectedCheck() {
         if (User.getUserConnecte(this) == null) {
             ajouterTache.setVisibility(View.INVISIBLE);
+            taches = helper.getAllTaches();
         } else {
             ajouterTache.setVisibility(View.VISIBLE);
+            taches = helper.getAllTaches(User.getUserConnecte(this).getId());
         }
     }
 

@@ -19,6 +19,7 @@ import com.myplanner.myplanner.helper.dialog.Dialog;
 import com.myplanner.myplanner.helper.dialog.DialogType;
 import com.myplanner.myplanner.model.Tache;
 import com.myplanner.myplanner.R;
+import com.myplanner.myplanner.model.User;
 
 import java.util.Calendar;
 
@@ -101,7 +102,8 @@ public class AjouterTaches extends AppCompatActivity {
                     Tache tache = new Tache(titreTache.getText().toString(),
                             descriptionTache.getText().toString(),
                             dateTache.getText().toString(),
-                            heureTache.getText().toString());
+                            heureTache.getText().toString(),
+                            User.getUserConnecte(this).getId());
 
                     dbHelper.insertTache(tache);
                     Alarm alarm = new Alarm(this, tache);

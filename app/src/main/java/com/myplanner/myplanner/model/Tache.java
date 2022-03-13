@@ -8,20 +8,23 @@ public class Tache {
     private String descriptionTache;
     private String jourTache;
     private String heureTache;
+    private int idUser;
 
-    public Tache(int id, String titreTache, String descriptionTache, String jourTache, String heureTache) {
+    public Tache(int id, String titreTache, String descriptionTache, String jourTache, String heureTache, int idUser) {
         this.id = id;
         this.titreTache = titreTache;
         this.descriptionTache = descriptionTache;
         this.jourTache = jourTache;
         this.heureTache = heureTache;
+        this.idUser = idUser;
     }
 
-    public Tache(String titreTache, String descriptionTache, String jourTache, String heureTache) {
+    public Tache(String titreTache, String descriptionTache, String jourTache, String heureTache, int idUser) {
         this.titreTache = titreTache;
         this.descriptionTache = descriptionTache;
         this.jourTache = jourTache;
         this.heureTache = heureTache;
+        this.idUser = idUser;
     }
 
     public Tache() {
@@ -68,4 +71,11 @@ public class Tache {
         this.heureTache = heureTache;
     }
 
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
 }

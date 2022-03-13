@@ -18,13 +18,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_TACHE = "tache";
     public static final String TABLE_USER = "user";
 
-    public static final String TACHE_ID = "_id";
+    public static final String TACHE_ID = "tache_id";
     public static final String TITRE_TACHE = "titre_tache";
     public static final String DESCRIPTION_TACHE = "descripton_tache";
     public static final String JOUR_TACHE = "jour_tache";
     public static final String HEURE_TACHE = "heure_tache";
 
-    public static final String USER_ID = "id";
+    public static final String USER_ID = "user_id";
     public static final String USER_NAME = "username";
     public static final String USER_EMAIL = "email";
     public static final String USER_PASSWORD = "password";
@@ -42,7 +42,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 TITRE_TACHE + " TEXT NOT NULL, " +
                 DESCRIPTION_TACHE + " TEXT NOT NULL, " +
                 JOUR_TACHE + " TEXT NOT NULL, " +
-                HEURE_TACHE + " TEXT NOT NULL);");
+                HEURE_TACHE + " TEXT NOT NULL," +
+                USER_ID + " INTEGER NOT NULL);");
 
         db.execSQL("CREATE TABLE " + TABLE_USER + " (" +
                 USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -65,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(USER_NAME, username);
         contentValues.put(USER_EMAIL, email);
         contentValues.put(USER_PASSWORD, password);
-        long result = db.insert(TABLE_USER, null, contentValues);
+        db.insert(TABLE_USER, null, contentValues);
     }
 
 
@@ -90,26 +91,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return user;
     }
 
-    public ArrayList<User> getAllUsers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        ArrayList<User> listUser = new ArrayList<>();
-        String[] columns = {
-                USER_ID,
-                USER_EMAIL,
-                USER_NAME,
-        };
-        Cursor cursor = db.query(TABLE_USER, columns, null, null, null, null, null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            listUser.add(new User(cursor.getInt(cursor.getColumnIndexOrThrow(USER_ID)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(USER_NAME)),
-                    cursor.getString(cursor.getColumnIndexOrThrow(USER_EMAIL))));
-            cursor.moveToNext();
-        }
-        cursor.close();
-        return listUser;
-    }
-
     public void insertTache(Tache t) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -117,6 +98,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(DESCRIPTION_TACHE, t.getDescriptionTache());
         cv.put(JOUR_TACHE, t.getJourTache());
         cv.put(HEURE_TACHE, t.getHeureTache());
+        cv.put(USER_ID, t.getIdUser());
         db.insert(TABLE_TACHE, null, cv);
         db.close();
     }
@@ -128,13 +110,14 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(DESCRIPTION_TACHE, t.getDescriptionTache());
         cv.put(JOUR_TACHE, t.getJourTache());
         cv.put(HEURE_TACHE, t.getHeureTache());
+        cv.put(USER_ID, t.getIdUser());
         db.update(TABLE_TACHE, cv, "_id=?", new String[]{String.valueOf(t.getId())});
         db.close();
     }
 
     public void deleteTache(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TACHE, "_id=?", new String[]{String.valueOf(id)});
+        db.delete(TABLE_TACHE, TACHE_ID + " = ?", new String[]{String.valueOf(id)});
         db.close();
     }
 
@@ -148,7 +131,38 @@ public class DBHelper extends SQLiteOpenHelper {
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-                    cursor.getString(4)));
+                    cursor.getString(4),
+                    cursor.getInt(5)));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return arrayList;
+    }
+
+
+    public ArrayList<Tache> getAllTaches(int idUser) {
+        String whereClause = USER_ID + " == ? ;";
+        String[] whereArgs = new String[]{String.valueOf(idUser)};
+        String[] columns = {
+                TACHE_ID,
+                TITRE_TACHE,
+                DESCRIPTION_TACHE,
+                JOUR_TACHE,
+                HEURE_TACHE,
+                USER_ID
+        };
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Tache> arrayList = new ArrayList<>();
+        Cursor cursor = db.query(TABLE_TACHE, columns, whereClause, whereArgs, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            arrayList.add(new Tache(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getInt(5)));
             cursor.moveToNext();
         }
         cursor.close();
@@ -162,7 +176,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 TACHE_ID + " = ? ",
                 new String[]{String.valueOf(id)}, null, null, HEURE_TACHE);
         c.moveToFirst();
-        Tache tache = new Tache(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4));
+        Tache tache = new Tache(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4), c.getInt(5));
         c.close();
         return tache;
     }
