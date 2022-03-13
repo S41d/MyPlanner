@@ -47,4 +47,6 @@
     <string name="accueil">Homepage</string>
     <string name="connexion">Login</string>
     <string name="bienvenue_app">Welcome to your task manager</string>
+    <string name="logout">Logout</string>
+    <string name="details_compte">Account details</string>
 </resources>

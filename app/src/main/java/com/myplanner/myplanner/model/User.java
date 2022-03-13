@@ -48,6 +48,12 @@ public class User {
         Log.d("Connexion", "User connecté: " + userConnecte.username);
     }
 
+    public static void deconnecter(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(sharedFileName, Context.MODE_PRIVATE);
+        preferences.edit().clear().apply();
+        userConnecte = null;
+    }
+
     public int getId() {
         return id;
     }

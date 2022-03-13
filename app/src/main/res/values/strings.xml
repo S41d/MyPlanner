@@ -50,4 +50,6 @@
     <string name="accueil">Accueil</string>
     <string name="connexion">Connexion</string>
     <string name="bienvenue_app">Bienvenue à votre application de gestion des taches</string>
+    <string name="logout">Déconnecter</string>
+    <string name="details_compte">Votre compte</string>
 </resources>

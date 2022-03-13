@@ -118,8 +118,12 @@ public class AccueilActivity extends AppCompatActivity implements RecyclerViewIn
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.btn_open_login) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
+            User user = User.getUserConnecte(this);
+            if (user == null) {
+                startActivity(new Intent(this, LoginActivity.class));
+            } else {
+                startActivity(new Intent(this, ProfileActivity.class));
+            }
         }
         return super.onOptionsItemSelected(item);
     }

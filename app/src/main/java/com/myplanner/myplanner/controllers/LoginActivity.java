@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.compte_inexistant, Toast.LENGTH_SHORT).show();
             } else {
                 User.setUserConnecte(user, this);
+                startActivity(new Intent(this, AccueilActivity.class));
                 finish();
             }
         }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.myplanner.myplanner.R;
 import com.myplanner.myplanner.model.Tache;
+import com.myplanner.myplanner.model.User;
 
 import java.util.ArrayList;
 
@@ -70,10 +71,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             heure = itemView.findViewById(R.id.heure_text);
 
             itemView.setOnClickListener(view -> {
-                if(recyclerViewInterface != null){
-                    int position = getBindingAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        recyclerViewInterface.onItemClick(position);
+                if (User.getUserConnecte(itemView.getContext()) != null) {
+                    if(recyclerViewInterface != null){
+                        int position = getBindingAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onItemClick(position);
+                        }
                     }
                 }
             });
